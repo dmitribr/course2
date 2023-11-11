@@ -95,5 +95,99 @@ for (i = 20; i >= 12 ; i--) {
     }
     console.log(i);
 };
-//23
+//23 вложенные циклы
+for (i = 0; i <= 5 ; i++) {
+    console.log(`Привет${i}`);
+    for (j = 0; j <= 2 ; j++) {    //на каждом цикле i выполняется весь цикл j
+    console.log(`ответ ${j}`);
+    } 
+}
+//задача на построение треугольника.
+let pry = '';
+for (i = 0; i < 10 ; i++) {
+    let j = '*';
+    pry = `${pry}${j}`
+    console.log(pry)
+    
+};
+//решение с вложенным циклом
+let result = '';
+let line = 7;
 
+for (i = 0 ; i <= line ; i++) {
+    
+    for (j = 0 ; j < i ; j++) {
+    result += '*';
+    }
+    result += '\n';
+}
+console.log(result);
+
+//метки для остановки цикла
+let result = '';
+let line = 7;
+
+gra: for (i = 0 ; i <= line ; i++) {
+    
+    for (j = 0 ; j < i ; j++) {
+     result += '*';
+    if (j === 2) continue gra;    //continue прекращает только этот цикл и переходит к метке.
+    }                             //если указать break то перестанет выпалнятся весь цикл где указана метка.
+    result += '\n';
+}
+console.log(result);
+//задачи 23
+for (i = 5 ; i <= 10 ; i++) {
+    console.log(i);
+}
+
+
+for (i = 20 ; i >= 10 ; i--) {
+    if (i === 13) break;
+    console.log(i);
+}
+
+
+for (i = 2 ; i <= 10 ; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+
+
+for (let i = 2; i <= 16; i++) {
+         if (i % 2 === 0) {
+             continue;
+         } else {
+             console.log(i);
+         }
+     }
+
+    function fourthTask() {
+        let i = 2;
+    
+        while (i <= 16) {
+            if (i % 2 === 0) {
+                i++;
+                continue;
+            } else {
+                console.log(i);
+            }
+            i++;
+        }
+    }
+    fourthTask();
+
+
+
+
+
+const arrayOfNumbers = [];
+for (i = 5 ; i <= 10 ; i++) {
+    let num = 0;
+    arrayOfNumbers[num] = i;
+    num += 1;
+    console.log(arrayOfNumbers);
+}
+
+  
