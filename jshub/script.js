@@ -42,6 +42,7 @@
 // result[2] = prompt('Ваш возраст');
 
 // document.write(result);
+//19lesson
 
 const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?','');
 const personalMovieDB = {
@@ -56,4 +57,43 @@ const lastMovie = prompt('Один из последних просмотрен�
 const rating = +prompt('На сколько оцените его?', '');
 personalMovieDB.movies[lastMovie] = rating;
 
+//21 логические операторы
 console.log(personalMovieDB);
+const lerr = 'ffdf';
+console.log(lerr[2] === 'w' || 'q' || 'w');  //возвращает первое если имеет true.
+
+console.log( NaN || 2 || undefined );
+console.log( NaN && 2 && undefined );
+console.log( 1 && 2 && 3 );
+console.log( !1 && 2 || !3 );
+console.log( 25 || null && !3 );
+console.log( NaN || null || !3 || undefined || 5);
+console.log( NaN || null && !3 && undefined || 5);
+console.log( 5 === 5 && 3 > 1 || 5);
+
+//answer 2 nan 3 false 25 5 5 true
+
+const hamburger = 3;
+const fries = 3;
+const cola = 0;
+const nuggets = 2;
+
+if (hamburger === 3 && cola || fries === 3 && nuggets) {
+   console.log('Done!')
+};
+//22 циклы
+let nnn = 1;
+do {
+    console.log(nnn);
+    nnn++;
+} while (nnn <= 24);
+
+for (i = 20; i >= 12 ; i--) {
+    if (i === 15) {               
+        //break;        в цикл добавили break на нужном значении.
+        continue;        //или continue для значения,которое хочем пропустить при том что цикл продолжет выполнятся
+    }
+    console.log(i);
+};
+//23
+
