@@ -192,7 +192,6 @@ for (i = 5 ; i <= 10 ; i++) {
 
 // задача 2 раздел
 function firstTask() {
-    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
     const arr = [3, 5, 8, 16, 20, 23, 50];
     const result = [];
 
@@ -208,7 +207,6 @@ firstTask();
 //2.2
 
 function secondTask() {
-    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
     const data = [5, 10, 'Shopping', 20, 'Homework'];
 
     for (i = 0 ; i < data.length ; i++) {
@@ -224,10 +222,9 @@ function secondTask() {
 };
 secondTask();
   
-//2.3
+//2.3 перевернуть массив
 
 function thirdTask() {
-    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
     const data = [5, 10, 'Shopping', 20, 'Homework'];
     const result = [];
     let num = data.length - 1;
@@ -262,5 +259,88 @@ for (i = 0 ; i < lines ; i++) {
 };
 console.log(result);
 
-//25
+//ёлочка решение из курса.
+const lines = 5;
+let result = '';
 
+for (let i = 0; i <= lines; i++) {
+    for (let j = 0; j < lines - i; j++) {
+        result += " ";
+    }
+    for (let j = 0; j < 2 * i + 1; j++) {
+        result += "*";
+    }
+    result += "\n";
+}
+
+console.log(result);
+
+//25
+function tr() {           //создаётся до начала выполнения скрипта, можно вызывать перед объявлением. Declaration
+    console.log(434);
+}
+tr();
+
+let rey = function() {   //создаётся при подходе потока, можно вызывать только после создания. Expression
+    console.log(43);
+}
+rey();
+
+let top = () => {      //стрелочная не имеет своего контекста.
+    console.log(544);
+}
+top();
+
+//задача 27 - 1
+function sayHello(name) {
+    return `Привет, ${name}!`;
+};
+console.log(sayHello('Ness'));
+
+//27 - 2
+function returnNeighboringNumbers(num) {
+    return [num - 1, num, num + 1];
+};
+console.log(returnNeighboringNumbers(9));
+
+//27 - 3 вернуть прогрессию
+let result = 0;
+let text = '';
+function getMathResult(num1, num2) {
+    if (typeof(num2) !== "number" || num2 <= 0) {
+        return num1;
+    } else {
+        for (i = 0 ; i < num2 ; i++) {
+            result = result + num1;
+            text = `${text}${result}`;
+            if (i === num2 - 1) {}
+            else { 
+                text += '---';
+            }
+            
+        }
+        return text;
+    }
+};
+console.log(getMathResult(8, 3));
+
+// решение из курса вернуть прогрессию
+function getMathResult(num, times) {
+    if (typeof(times) !== 'number' || times <= 0) {
+        return num;
+    }
+
+    let str = '';
+
+    for (let i = 1; i <= times; i++) {
+        if (i === times) {
+            str += `${num * i}`;
+        } else {
+            str += `${num * i}---`;   // str = str + num * i + "---"
+        }
+    }
+    return str;
+}
+console.log(getMathResult(10, 5));
+
+//28 методы и свойства
