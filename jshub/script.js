@@ -376,3 +376,63 @@ function getCoupeNumber(num) {
     }
 }
 getCoupeNumber(33);
+
+//задача 8 2.1 перевод минут в часы и минуты.
+function getTimeFromMinutes(num) {
+    if (typeof(num) !== 'number' || num < 0 || !Number.isInteger(num)) {
+        console.log('Ошибка, проверьте данные');
+        return 'Ошибка, проверьте данные';
+    } else if (num < 60) {
+        console.log(`Это 0 часов и ${num} минут`);
+        return `Это 0 часов и ${num} минут`;
+    } else {
+        let hour = Math.floor(num / 60);
+        let minute = num - (hour * 60);
+        switch (hour) {
+            case 1:
+            case 21:
+            case 31:
+            case 41:
+            case 51:
+            case 61:
+            case 71:
+            case 81:
+            case 91:
+            case 101:
+            case 201:
+                console.log(`Это ${hour} час и ${minute} минут`);
+                return `Это ${hour} час и ${minute} минут`;
+            case 2:
+            case 3:
+            case 4:
+            case 102:
+            case 103:
+            case 104:
+            case 202:
+            case 203:
+            case 204:
+                console.log(`Это ${hour} часa и ${minute} минут`);
+                return `Это ${hour} часa и ${minute} минут`;
+            default:
+                console.log(`Это ${hour} часов и ${minute} минут`);
+                return `Это ${hour} часов и ${minute} минут`;
+        }
+    }
+        
+}
+getTimeFromMinutes(325);
+
+// задача 8 2.2 вычислем наибольшее число из аргументов, минимум 4 аргумента
+function findMaxNumber(num1, num2, num3, num4) {
+
+    if (typeof(num1 + num2 + num3 + num4) !== 'number' || typeof(num4) === 'undefined') {
+        console.log('yt dsik');
+        return 0;
+    }   else {
+        console.log(Math.max(num1, num2, num3, num4));
+        return Math.max(num1, num2, num3, num4);
+     }
+}
+findMaxNumber(3, 8, 29);
+
+//задача 9 3.1
