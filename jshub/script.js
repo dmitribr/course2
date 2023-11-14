@@ -344,3 +344,18 @@ function getMathResult(num, times) {
 console.log(getMathResult(10, 5));
 
 //28 методы и свойства
+
+//задчи 1.1 вычисление объёма куба и площади поверхности.
+function calculateVolumeAndArea(num) {
+    let result = '';
+    if (typeof(num) === 'string' || num <= 0 || num % 1 !== 0) {
+        result = 'При вычислении произошла ошибка';
+        return result;
+    } else {
+        result = `Объем куба:${num * num * num}, площадь всей поверхности: ${(num * num) * 6}`
+        return result;
+    }
+}
+calculateVolumeAndArea();
+
+//задача 1.2
