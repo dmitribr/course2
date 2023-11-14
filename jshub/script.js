@@ -358,4 +358,21 @@ function calculateVolumeAndArea(num) {
 }
 calculateVolumeAndArea();
 
-//задача 1.2
+//задача 1.2 проверка ряда места в вагоне
+function getCoupeNumber(num) {
+    let result;
+    if (typeof(num) !== 'number' || num < 0 || num % 1 !== 0) {
+        console.log("Ошибка. Проверьте правильность введенного номера места");
+        result = 'Ошибка. Проверьте правильность введенного номера места';
+        return(result);
+    } else if (num === 0 || num > 36) {
+        console.log('Таких мест в вагоне не существует');
+        result = "Таких мест в вагоне не существует";
+        return(result);
+    } else {
+        result = Math.ceil(num / 4);
+        console.log(result);
+        return(result);
+    }
+}
+getCoupeNumber(33);
