@@ -13,7 +13,7 @@ const personalMovieDB = {
     movies: {},
     actors: {},
     genres: [],
-    provat: false
+    privat: false
 };
 
 
@@ -25,7 +25,6 @@ function remember() {
         if (!isNaN(b) && a != null && b != null && a !== '' && b !== '' && a.length < 50){
             personalMovieDB.movies[a] = b;
             console.log('получилось');
-            console.log(typeof(a), typeof(b));
         } else {
             console.log('ошибка');
             i--;
@@ -48,4 +47,25 @@ function detectPersonalLevel () {
 
 detectPersonalLevel();
 
+function showMyDB() {                             //2 решение showMyDB(luboe) { if (!luboe) {console.log() }}
+    if (personalMovieDB.privat === false){        //если передаётся значение false то console.log срабаотывает.
+        console.log(personalMovieDB);
+    }
+}
+showMyDB();
+
+function writeYouGenres() {
+        let gen;
+    for (let i = 0 ; i < 3 ; i++) {
+        gen = prompt(`Ваш любимый жанр под номером ${i + 1} ?`);
+        console.log(gen);
+     if (gen == '' || gen == null || gen.length > 50 || !isNaN(gen)) {
+        console.log(i);
+        i--;
+    } else {
+        personalMovieDB.genres[i] = gen;
+        console.log(personalMovieDB.genres);
+    }}
+}
+writeYouGenres();
 console.log(personalMovieDB);
