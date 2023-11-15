@@ -436,3 +436,49 @@ function findMaxNumber(num1, num2, num3, num4) {
 findMaxNumber(3, 8, 29);
 
 //задача 9 3.1
+
+let resul = '';
+let result = '';
+let mass = [0, 1];
+function fib(num) {
+    if (typeof(num) !== 'number' || num <= 0 || !Number.isInteger(num)) {
+        // return '';
+        console.log('fgf');
+    }    else {
+    for (i = 1; i <= num ; i++) {
+        mass[i + 1] = mass[i] + mass[i - 1];
+        resul += `${mass[i - 1]}`;
+        result = `${resul}`;
+        resul += ' ';
+    }
+    // return result;
+    console.log(result);
+}
+}
+fib(20);
+// решение из курса 
+function fib(num) {
+    if (typeof(num) !== 'number' || num <= 0 || !Number.isInteger(num)) {
+        return "";
+    }
+
+    let result = '';
+    let first = 0;
+    let second = 1;
+
+    for (let i = 0; i < num; i++) {
+        if (i + 1 === num) {
+            result += `${first}`;
+            // Без пробела в конце
+        } else {
+            result += `${first} `;
+        }
+        let third = first + second;
+        first = second;
+        second = third;
+    }
+    return result;
+}
+fib(5)
+
+//30 метод trim()
