@@ -481,4 +481,20 @@ function fib(num) {
 }
 fib(5)
 
-//30 метод trim()
+//30 метод trim() удаляет пробелы сначала строки и с конца.
+console.log('     ffdgfdg    gfdf    '.trim());
+
+//31 callback функции
+function learnJS(number, callback) {
+    console.log(`Пункт номер ${number}`);
+    callback();
+}
+
+function done() {
+    console.log('Передача done');
+}
+
+learnJS(8, done);   //указываем без скобок, так как мы не вызываем её. можно указать целиком всю функцию в аргументе.
+
+//32 объекты, деструктуризация объектов
+
