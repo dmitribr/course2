@@ -498,3 +498,51 @@ learnJS(8, done);   //указываем без скобок, так как мы
 
 //32 объекты, деструктуризация объектов
 
+const options = {
+    name: 'logi',
+    width: 143,
+    height: 500,
+    colors: {
+        background: 'red',
+        border: 'green'
+    }
+};
+delete options.name;   //удаление пункта name из объекта options
+console.log(options);
+
+for (let key in options) {       //перебор свойств и значений в объекте. key принимает свойство по порядку.
+        if (typeof(options[key]) === 'object') {             //если key объект, то перебираем объект где 
+            for (let key2 in options[key]) {                    //key2 присваеваем свойство в объекте.
+                console.log(`Свойство ${key2} имеет значение ${options[key][key2]}`);
+            }
+        } else {
+    console.log(`Свойство ${key} имеет значение ${options[key]}`); 
+}
+}
+
+console.log(Object.keys(options));    //вернёт все свойства объекта, в конце можно добавить length чтобы получить число
+
+//создание собственного метода
+const pop = {
+    size: 5,
+    width: 90,
+    toy: function() {
+        console.log('метод');
+    }
+}
+  pop.toy();
+
+// деструктуризация объекта
+const options2 = {
+    name: 'logi',
+    width: 143,
+    height: 500,
+    colors: {
+        background: 'red',
+        border: 'green'
+    }
+};
+const {background, border} = options2.colors;   // деструктуризация
+
+console.log(background);
+
