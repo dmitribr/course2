@@ -573,3 +573,99 @@ console.log(arr.sort(compareNum)); //сортирует массив по пер
 function compareNum(a, b) {
     return a - b;
 };
+
+//35 передача по ссылке или по значению spread, клонирование объектов.
+let obje = {
+    a: 1,
+    b: 74,
+    c: {
+        c1: 545,
+        c2: 455
+    }
+};
+
+let obje2 = {};                              
+function jet(ob) {                               //поверхностная копия объекта, не копирует вложенные свойства и значения
+    for (let key in ob) {                          //а оставляет ссылку.
+        obje2[key] = ob[key];
+    }
+    return obje2;
+}
+console.log(jet(obje)); 
+
+// объединение объектов при помощи метода
+let obje = {
+    a: 1,
+    b: 74,
+    c: {
+        c1: 545,
+        c2: 455
+    }
+};
+let obje2 = {
+    d: 54,
+    f: 555,
+    h: 'рп'
+};
+console.log(Object.assign(obje, obje2));  //поместили obje2 в obje, если будут одинаковые свойства, то они перетянутся с obje2.
+const copy = Object.assign({}, obje2);  //копирование объекта.
+console.log(copy);            
+
+//клонирование массива при помощи метода slice()
+const oldArray = ['fg', 'gfggg', 'fggggeee'];
+const newArray = oldArray.slice();
+console.log(newArray);
+
+//создание копии при помощи спред оператора ...
+let obje2 = {
+    d: 54,
+    f: 555,
+    h: 'рп',
+    g: {
+        gt: 32,
+        rt: 99
+    }
+};
+let gr = {...obje2};   //так же ... работает и с массивом.
+console.log(gr);
+
+//задача 10 
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function(plan) {                 //создание метода которые возвращает возраст и языки
+    console.log(`Мне ${plan['age']} и я владею языками: ${plan['skills']['languages'].join().toUpperCase()}`);
+    }
+};
+personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+
+// вернуть из объекта значение exp при помощи деструктуризации.
+function showExperience(plan) {
+    const {exp} = plan.skills;            
+    console.log(exp);
+    return exp;
+}
+showExperience(personalPlanPeter);
+
+
+//вернуть "язык изучен на", если нет свойств то вернуть пустую строку.
+function showProgrammingLangs(plan) {
+    let perem = '';
+    if (Object.keys(plan.skills.programmingLangs).length > 0) {
+    for (let key in plan.skills.programmingLangs) {
+        perem += `Язык ${key} изучен на ${plan.skills.programmingLangs[key]}\n`;
+    }console.log(perem);
+    }  else {
+    console.log('неучь');
+    return '';}
+
+}
+showProgrammingLangs(personalPlanPeter);
