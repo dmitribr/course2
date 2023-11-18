@@ -777,3 +777,22 @@ function isBudgetEnough(data) {
     (sum >= 1) ? console.log('Бюджета достаточно') : console.log('Бюджета недостаточно');
 };
 isBudgetEnough(shoppingMallData);
+
+//задача 14 отсортировать и распределить 3 команды по 3 человека, остальных выписать в строку
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+let group = [[],[],[], 'Оставшиеся студенты:'];
+
+function sortStudentsByGroups(arr) {
+    let mass = arr.sort();
+    let j = 0;
+    for (let i = 1 ; i <= 3 ; i++) {
+        for (j ; j < i * 3 ; j++) {
+            group[i - 1].push(mass[j]);
+        }
+    }
+    for (let p = 0 ; p < mass.length - 9 ; p++) {
+        group[3] += ` ${mass[p + 9]}`;
+    }
+    console.log(group);
+};
+sortStudentsByGroups(students);
