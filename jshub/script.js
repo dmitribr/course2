@@ -697,3 +697,35 @@ function standardizeStrings(arr) {
     }
 }
 standardizeStrings(family);
+
+//задача 12
+//перевернуть строку и вернуть.
+const someString = '!акбишо';
+
+function reverse(str) {
+    if (typeof(str) === 'string') {
+        console.log(str.split('').reverse().join(''));
+    } else {
+        console.log('ошибка');
+        return 'Ошибка';
+    }
+}
+reverse(someString);
+
+//вернуть доступные валюты,выбирая из двух разных массивов. первый аргумент массив валют, второй аргумент отсутсвующие валюты.
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+let der = [...baseCurrencies, ...additionalCurrencies];
+function availableCurr(arr, missingCurr) {
+        let volume = 'Доступные валюты:';
+        if (arr.length === 0) {
+            return 'Нет доступных валют';
+        } for (let key of arr) {
+            if (key !== missingCurr) {
+                volume += `\n${key}`;
+            } 
+        }
+        console.log(volume);
+
+}
+availableCurr(der, 'RUB');
