@@ -669,3 +669,31 @@ function showProgrammingLangs(plan) {
 
 }
 showProgrammingLangs(personalPlanPeter);
+
+//задача 11 массивы.
+//вернуть строку "Семья состоит из (перечисление из массива)"
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr) {
+    if(arr.length === 0) {
+        return `Семья пуста`;
+    } else {
+        let name = 'Семья состоит из:';
+        for (let key of arr) {
+            name += ` ${key}`;
+        }
+        console.log(name);
+        return name;
+    }
+}
+showFamily(family);
+
+//вернуть свойства массива строками в нижнем регистре.
+function standardizeStrings(arr) {
+    let str = '';
+    for (let key of arr) {
+        str += `${key.toLowerCase()}\n`;
+        console.log(str);
+    }
+}
+standardizeStrings(family);
