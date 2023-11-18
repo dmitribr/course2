@@ -729,3 +729,51 @@ function availableCurr(arr, missingCurr) {
 
 }
 availableCurr(der, 'RUB');
+
+//36 ООП. прототипно ориентированное программирование
+const solder = {
+    head: 100,
+    body: 100
+};
+const lastSolder = Object.create(solder);   //создание прототипа. 
+console.log(lastSolder.body);
+
+const solder2 = {};
+Object.setPrototypeOf(solder2, lastSolder);    //можно создавать прототип при помощи такой конструкции
+console.log(solder2.body);
+
+//37 
+//задача 13. рассчитать хватит ли тороговому центру бюджета на оплату отопления. 
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+}
+
+function isBudgetEnough(data) {
+    let sum = 0;
+    for (let i = 0; i < data.shops.length ; i++) {
+        sum += data.shops[i].width * data.shops[i].length;
+    }
+    sum = data.budget / (sum * data.height * data.moneyPer1m3);
+    (sum >= 1) ? console.log('Бюджета достаточно') : console.log('Бюджета недостаточно');
+};
+isBudgetEnough(shoppingMallData);
