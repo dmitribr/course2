@@ -796,3 +796,24 @@ function sortStudentsByGroups(arr) {
     console.log(group);
 };
 sortStudentsByGroups(students);
+
+//38 отлавливаем ошибки. Breakpoints
+//39 Динамическая типизация в JS
+//преобразование в string - String(); 43 + ''
+//преобразование в number - Number(); parseInt('12px', 10) вторым указывается ситсема счисления; и при помощи +'32'
+//преобразование в boolean - Boolean(); !!любое значение.
+//40 Замыкание и лексическое окружение
+//Вызов функции это каждый раз создание нового лексического окружения.
+
+function nub() {
+    let ger = 0;
+    const ler = function() {          //если создать function ler(), и return ler(). не работает.
+        ger = ger + 1;
+        return ger;
+    }
+    return ler;
+}
+const rer = nub();
+let a1 = rer(); let a2 = rer(); let a3 = rer();
+console.log(a1, a2, a3);
+
