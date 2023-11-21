@@ -927,4 +927,17 @@ div.innerHTML = '<h1>Привет</h1>';
 div.textContent = 'Просто текст';
 div.insertAdjacentHTML('afterbegin', '<h2>текст</h2>');  //добавление html. 1 аргумент куда будем добавлять.
 
+//45 события и их обработчики
+const but = document.querySelector('button');
+but.addEventListener('mouseenter', () => {
+    console.log('Привет');
+});
+
+String.prototype.isUpperCase = function() {
+    this.forEach( item => {
+        if (item !== item.toUpperCase) {
+            return false;
+        } return true;
+    })
+  };
 
