@@ -817,3 +817,114 @@ const rer = nub();
 let a1 = rer(); let a2 = rer(); let a3 = rer();
 console.log(a1, a2, a3);
 
+//41 Задачи.
+// задача 15 Дебаг
+const restorantData = {
+    menu: [
+        {
+            name: 'Salad Caesar',
+            price: '14$'
+        },
+        {
+            name: 'Pizza Diavola',
+            price: '9$'
+        },
+        {
+            name: 'Beefsteak',
+            price: '17$'
+        },
+        {
+            name: 'Napoleon',
+            price: '7$'
+        }
+    ],
+    waitors: [
+        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+    ],
+    averageLunchPrice: '20$',
+    openNow: true
+};
+
+function transferWaitors(data) {
+    const copy = Object.assign({}, data);
+
+    copy.waitors = [{name: 'Mike', age: 32}];
+    return copy;
+}
+
+console.log(transferWaitors(restorantData));
+
+//проверить открыт ли ресторан
+function isOpen(prop) {
+    let answer = '';
+    prop ? answer = 'Открыто' : answer = 'Закрыто';
+
+    return answer;
+}
+console.log(isOpen(restorantData.openNow));
+
+//рассчитать средний чек
+function isAverageLunchPriceTrue(fDish, sDish, average) {
+    if (parseInt(fDish.price, 10) + parseInt(sDish.price, 10) < parseInt(average, 10)) {
+        return 'Цена ниже средней';
+    } else {
+        return 'Цена выше средней';
+    }
+}
+
+console.log(isAverageLunchPriceTrue(restorantData.menu[0],
+                                    restorantData.menu[1],
+                                    restorantData.averageLunchPrice));
+
+//создание копии объекта и новых значений.
+function transferWaitors(data) {
+    const copy = Object.assign({}, data);
+
+    copy.waitors = [{name: 'Mike', age: 32}];
+    return copy;
+}
+
+console.log(transferWaitors(restorantData));
+
+//42 получение элеменов со страницы
+//старые методы
+document.getElementById('nameID');
+document.getElementsByClassName('nameClass'); //создаёт протатип массива, нельзя обратиться на прямую
+document.getElementsByTagName('button');  //создаёт протатип массива.
+//современные
+let name1 = document.querySelectorAll('.className')  //получим псевдомассив. нужно указывать . или при id #
+name1.forEach(item => {        //пробежимся по массиву (перебор).
+    console.log(item);
+});
+document.querySelector('#id');  // получим 1 элемент
+
+//43 действия с элементами на странице.
+const hr = document.getElementById('nameID');
+hr.style.backgroundColor = 'red';
+hr.style.width = '120px';
+//или
+hr.style.cssText = 'text-align = center; color: blue';
+
+const hrw = document.getElementsByClassName('nameClass');
+hrw[2].style.borderRadius = '10%';                       //так как элементов несколько обращаемся по индексу
+
+hrw.forEach(item => {                                    //перебор всего псевдомассива и присваевание к каждому элементу css
+    item.style.cssText = 'font-size: 20px;';
+})
+
+const div = document.createElement('div');    //создали элемент
+div.classList.add('black');       //добавили класс элементу 
+document.body.append(div);    //добавляем наш элемент в конец html.
+document.querySelector('.grid').append(div); //добавление в определённый класс на html, prepend в начала класса.
+
+hrw[1].after(div);  //добавление после определённого элемента, before до элемента
+hrw[0].remove(); //удаление
+
+hrw[4].replaceWith(hrw[2]);  //заменить один элемент на другой
+wrpper.insertBefore(div, hrw[0]); //старая запись. первый аргумент это то что нужно добавить, второй перед каким элементом
+
+div.innerHTML = '<h1>Привет</h1>';
+div.textContent = 'Просто текст';
+div.insertAdjacentHTML('afterbegin', '<h2>текст</h2>');  //добавление html. 1 аргумент куда будем добавлять.
+
+
