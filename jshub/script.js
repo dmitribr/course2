@@ -974,6 +974,62 @@ function pow(x, n) {
 };
 console.log(pow(2, 4));
 
+//пример из курса
+const students = {
+    js: [{
+       name: 'John',
+       progress: 100
+    }, {
+       name: 'Ivan',
+       progress: 60
+    }],
+  
+    html: {
+       basic: [{
+          name: 'Peter',
+          progress: 20
+       }, {
+          name: 'Ann',
+          progress: 18
+       }],
+  
+       pro: [{
+          name: 'Sam',
+          progress: 10
+       }],
+  
+       semi: {
+          students: [{
+             name: 'Test',
+             progress: 100
+          }]
+       }
+    }
+ };
+  
+ function getTotalProgressByIteration(data) {
+    if (Array.isArray(data)) {
+       let total = 0;
+          for (let i = 0 ; i < data.length ; i++) {
+            total += data[i].progress;
+            return [total, data.length];
+          }
+       } else {
+            let total = [0, 0];
+            for (let key of Object.values(data)) {
+                let tr = getTotalProgressByIteration(key);
+                total[0] += tr[0];
+                total[1] += tr[1];
+            } 
+                return total;
+     }   
+    }
+    
+ 
+  
+
+ console.log(getTotalProgressByIteration(students));
+
 //задача 16
 //выполнить рекурсию вычеслив факториал
 function factorial(n) {
