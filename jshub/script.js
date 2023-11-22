@@ -928,16 +928,63 @@ div.textContent = 'Просто текст';
 div.insertAdjacentHTML('afterbegin', '<h2>текст</h2>');  //добавление html. 1 аргумент куда будем добавлять.
 
 //45 события и их обработчики
-const but = document.querySelector('button');
-but.addEventListener('mouseenter', () => {
+const but = document.querySelector('button');           //если SelectorAll это псевдомассив, вешать обработчик событий
+but.addEventListener('mouseenter', (event) => {         //через but.forEach(buts => {but.addEventListener('click', функция)});
     console.log('Привет');
 });
 
-String.prototype.isUpperCase = function() {
-    this.forEach( item => {
-        if (item !== item.toUpperCase) {
-            return false;
-        } return true;
-    })
-  };
+//или
+let i = 0;
+const even = (e) => {                  //создаём отдельно функцию. e - это событие.
+    console.log(e.target);
+    i++;
+    if (i == 2) {
+        but.removeEventListener('click', even);     //если нажали два раза то обработчик событий удаляется
+    }
+}
+
+but.addEventListener('click', even, false);   //3 аргумент это опция, например {once: true} - обработчик событий выполнится только 1 раз
+
+//работа с ссылкой и отмена перехода по ней
+const  link = document.querySelector('a');
+
+link.addEventListener('click', (event) => {
+    event.preventDefault();          //отменяем переход по ссылке
+    console.log(event.type);     //выведем тип события
+});
+
+//46 навигация по дом
+//47 рекурсия
+//возведение в степень обычная функция.
+function pow1(x, n) {
+    let res = 1;
+    for (let i = 0 ; i < n ; i++) {
+        res *= x;
+    } console.log(res);
+}
+pow1(0, 5);
+
+function pow(x, n) {
+    if (n === 1) {
+        
+        return x;
+    } else { 
+    return x * pow(x, n - 1);   //метод рекурсии, когда внутри функции вызывается сама функция.
+    } 
+};
+console.log(pow(2, 4));
+
+//задача 16
+//выполнить рекурсию вычеслив факториал
+function factorial(n) {
+    if (n <= 1) {
+        return 1;
+    } else if (typeof(n) !== 'number' || n % 1 !== 0) {
+        return 'не число';
+    } else {
+        return n *(factorial(n - 1));
+    }
+    
+}
+console.log(factorial(4));
 

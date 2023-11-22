@@ -20,6 +20,6 @@ but.addEventListener('click', even, false);   //3 аргумент это опц
 const  link = document.querySelector('a');
 
 link.addEventListener('click', (event) => {
-    event.preventDefault();          //отменяем переход оп ссылке
+    event.preventDefault();          //отменяем переход по ссылке
     console.log(event.type);     //выведем тип события
 });
