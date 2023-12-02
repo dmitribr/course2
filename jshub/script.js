@@ -1085,3 +1085,55 @@ function addjs (src) {
 }
 addjs('js/jsscripts.js');
 
+
+
+//РАЗДЕЛ 3 дополнительные основы
+//53 Оепратор нулевого слияния (Nullish, ??)
+//оператор ?? реагирует только на Null и undefined, остальные значения будут true
+//в остальном работает как оператор или ||
+let rest1;
+let frend = 0;
+console.log(rest1 ?? frend ?? 'Defolt');
+
+//54 Оператор опциональной цепочки ?.
+//проверят существет ли элемент и возвращает undefined, но не ошибку
+const users = {
+    name: 'Het',
+    age: 44,
+    lastName: 0,
+    city: (e) => {
+        return `${users.name} is liven ${e}`;
+    }
+}
+console.log(users.city('Moscow'));
+console.log(users.go?.());          //вернёт undefined
+
+//55 Живые коллекции и полезные методы
+const tot3 = document.querySelectorAll('.box');  //статические коллекции, показывает коллекцию на момент того как она была вызвана
+const tot2 = document.getElementsByClassName('box'); //живые коллекции, формируется после выполнения метода
+
+//56 Symbol - скрытые при обычном доступе свойства
+const sym = {
+    name: 'RR',
+    age: 31,
+    [Symbol['id']]: 34343
+}
+console.log(sym['id']);    //в консоль вернёт undefined
+
+for ( let key in sym) {
+    console.log(key);       //при переборе клчей объекта Symbol id вернёт как undefined
+}
+
+//57 дескрипторы свойств (атрибуты - фланги)
+//writable  - если значение true то свойство в объекте можно будет изменеть, false нет
+//enumerable - если true то своство будет перечилсяться в циклах, если false то нет
+//configurable - если ture то свойство можно удалить, а атрибуты можно изменить, если false - нет
+console.log(Object.getOwnPropertyDescriptor(sym, 'age')); //чтобы вывести в консоль значение атрибутов
+
+Object.defineProperty(sym, 'name', {writable: false});  //изменение значения атрибута writable
+
+Object.defineProperty(sym, 'gender', {value: 'male'});  //создание нового свойства в объекте, при таком создании
+//все атрибуты создаваемого свойства будут со значением false (если их не указать изначально), при обычном создании объекта
+//его свойств и значений все атрибуты будут со значением true
+
+//58 Итерируемые конструкции
