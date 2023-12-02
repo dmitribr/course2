@@ -1044,3 +1044,44 @@ function factorial(n) {
 }
 console.log(factorial(4));
 
+//48 практика
+//49 события на мобильных устройствах
+//touchenter срабатывает как только палец скользил и дошёл до элемента
+//touchleave срабатывает когда палец скользил и ушёл за пределы обрабатываемого элемента
+//touchcancel когда палец окжается за пределами приложения
+window.addEventListener('DOMContenrLoaded'), () => {        //ждём пока страница загрузится
+    const box = document.querySelector('.box');
+
+    box.addEventListener('touchstart', (e) => {             //touchstart срабатывет при касании к объекту
+        e.preventDefault();
+        console,log('start');
+    });
+
+    box.addEventListener('touchmove', (e) => {             //touchmove срабатывет при движении пальца на объекте
+        e.preventDefault();
+        console,log('move');
+    });
+
+    box.addEventListener('touchend', (e) => {             //touchend срабатывет как только палец оторвался от объекта
+        e.preventDefault();
+        console,log('end');
+    })
+}
+//touches, targetTouches, changedTouches число пальцев на элементе
+
+//50 Async, defer, динамические скрипты
+//defer загружает js в фоновом режиме, и когда DOM загрузится полностью, запускает js
+//acynct загружается и запускается в фоновом режиме не дожидаясь загрузки DOM дерева.
+<html>
+    <script defer src="js/jsscript.js"></script>
+    <script async src="js/jsscript.js"></script>
+</html>
+//динамические встраиваются в js файл
+function addjs (src) {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = false;
+    document.body.append(script);
+}
+addjs('js/jsscripts.js');
+
