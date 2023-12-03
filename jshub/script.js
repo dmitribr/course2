@@ -1225,4 +1225,39 @@ const big = 2184239748748377777433266856836573674367n;          //создани
 const big2 = BigInt(18423485899498547774367);
 console.log(big, big2);
 
-//
+//задача 17
+//Если на входе функции summary = 25, то на результат должен быть 17. Всего в числах от 1 до 17 содержится 25 цифр: 1234567891011121314151617.
+function amountOfPages(summary){
+    let sum = 0;
+    for (let i = 0; i <= summary; i++) {
+        sum += String(i).length;
+        if (sum > summary) {
+            console.log(i);
+            break;
+        }
+    }
+}
+amountOfPages(9);
+
+//задача 18
+//Напишите функцию isPangram, которая принимает в себя строку и возвращает логическое значение.
+//Если строка является панграммой - вернется true, если нет - false.
+function isPangram(string) {
+    let setStr = new Set(string.toLocaleLowerCase().split('').sort());
+    let en = [' ', 'a', 'b', 'c', 'd', 'e',
+                'f', 'g', 'h', 'i', 'j', 'k',
+                'l', 'm', 'n', 'o', 'p', 'q',
+                'r', 's', 't', 'u', 'v', 'w',
+                'x', 'y', 'z']
+    console.log(Array.from(setStr).toString() ===  en.toString());
+}
+isPangram('The quick brown fo');
+
+//задача 19
+//Создайте функцию deepCount, которая будет считать количество всех элементов в массиве, включая и вложенные массивы.
+function deepCount(a){
+    let count = a.length;
+    for (let i=0; i<a.length; i++) if (Array.isArray(a[i])) count += deepCount(a[i]);
+    return count;
+}
+console.log(deepCount([32, 3, 43, [45, [4]]]));
