@@ -1257,7 +1257,41 @@ isPangram('The quick brown fo');
 //Создайте функцию deepCount, которая будет считать количество всех элементов в массиве, включая и вложенные массивы.
 function deepCount(a){
     let count = a.length;
-    for (let i=0; i<a.length; i++) if (Array.isArray(a[i])) count += deepCount(a[i]);
+    for (let i=0; i<a.length; i++)
+    if (Array.isArray(a[i])) {
+        count += deepCount(a[i]);
+    }
     return count;
 }
 console.log(deepCount([32, 3, 43, [45, [4]]]));
+
+//63 ClassList и делегирование событий
+const btn = document.querySelectorAll('button');
+
+console.log(btn[0].classList.length);  //покажет количество классов
+console.log(btn[0].classList.item(1));  //item получает класс под определённым индексом
+console.log(btn[2].classList.add('red'));   //добавит класс
+console.log(btn[0].classList.remove('blue'));   //удалит класс
+console.log(btn[0].classList.toggle('green'));  //проверит есть ли такой класс, если есть то удалит, если нет то добавит.
+
+if (btn[2].classList.contains('red')) {        //проверяем имеет ли объект данный класс
+    console.log('red');         
+}
+
+btn[0].addEventListener('click', () => {
+    if (!btn[2].classList.contains('red')) {        //если данного класса нет
+        console.log(btn[2].classList.add('red'));      //то добавлем его.
+    } else {                                            //можно сделать через btn[0].classList.toggle('red')
+        console.log(btn[2].classList.remove('red'));
+    }
+})
+//обработчик событий
+const wrapper = document.querySelector('.btn');  //доступ к div с множеством кнопок
+wrapper.addEventListener('click', (event) => {
+    if(event.target && event.target.tagName == 'BUTTON') {  //если элемент существует, и тег равен BUTTON
+        console.log('hello button');
+    }
+    if(event.target && event.target.classList.contains('red')) {   //если элемент существует и его класс red
+        console.log('Hello red');
+    }
+})
